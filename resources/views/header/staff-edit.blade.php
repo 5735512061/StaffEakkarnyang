@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="card-body">
-            <form action="{{url('/header/update-staff')}}" method="POST" enctype="multipart/form-data">@csrf
+            <form action="{{url('/header/update-staff')}}" method="POST" enctype="multipart/form-data" autocomplete="off">@csrf
                 <div class="pl-lg-4">
                   <div class="row">
                       <div class="col-lg-4">
@@ -124,7 +124,7 @@
                       <div class="col-lg-4">
                         <div class="form-group">
                           <label class="form-control-label">เงินเดือน</label>
-                          <input type="text" name="salary" value="{{$staff->salary}}" class="form-control form-control-alternative">
+                          <input type="text" name="salary" value="{{number_format((float)$staff->salary)}}" class="form-control form-control-alternative">
                         </div>
                       </div>
                       <div class="col-lg-4">

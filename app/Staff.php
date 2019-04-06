@@ -22,4 +22,14 @@ class Staff extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function works()
+    {
+        return $this->belongsToMany('App\Work', 'staff_id', 'id');
+    }
+
+    public function funds()
+    {
+        return $this->belongsToMany('App\Fund', 'staff_id', 'work_id', 'id');
+    }
 }

@@ -68,7 +68,7 @@
 		                    <p>วันที่เริ่มงาน : {{$history->startdate}}</p>
 		                </div>
 		                <div class="col-md-3">
-		                    <p>เงินเดือน : {{$history->salary}}</p>
+		                    <p>เงินเดือน : {{number_format((float)$history->salary)}}</p>
 		                </div>
 		            </div>
 		            <div class="row">
@@ -78,12 +78,6 @@
 		                    <p>หมายเหตุ : {{$history->comment}}</p>
 		                </div>
 		            </div>
-        		</div>
-      		</div>
-      	</div>
-      	<div class="col-lg-12" style="margin-top: 20px;">
-           	<div class="card z-depth-3">
-            	<div class="card-body">
         		</div>
       		</div>
       	</div>

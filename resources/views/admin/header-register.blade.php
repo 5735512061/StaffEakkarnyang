@@ -11,7 +11,7 @@
           </div>
         </div>
         <div class="card-body">
-            <form action="{{url('/admin/header-register')}}" method="POST" enctype="multipart/form-data">@csrf
+            <form action="{{url('/admin/header-register')}}" method="POST" enctype="multipart/form-data" autocomplete="off">@csrf
 	            <p>ข้อมูลการเข้าสู่ระบบ</p>
 	            <div class="pl-lg-4">
 		            <div class="row">

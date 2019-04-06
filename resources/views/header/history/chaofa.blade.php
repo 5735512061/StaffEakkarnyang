@@ -38,7 +38,7 @@
                     <td>{{$value->tel}}</td>
                     <td>{{$value->position}}</td>
                     <td>{{$value->startdate}}</td>
-                    <td>{{$value->salary}}</td>
+                    <td style="color: red;">{{number_format((float)$value->salary)}}</td>
                     <td>
                       <a href="{{url('/header/history-information/')}}/{{$value->id}}">
                           <center><i class="ni ni-folder-17" style="color:blue;"></i></center>

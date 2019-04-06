@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="card-body">
-            <form action="{{url('/header/staff-register')}}" method="POST" enctype="multipart/form-data">@csrf
+            <form action="{{url('/header/staff-register')}}" method="POST" enctype="multipart/form-data" autocomplete="off">@csrf
                 <div class="pl-lg-4">
 	                <div class="row">
 	                    <div class="col-lg-4">

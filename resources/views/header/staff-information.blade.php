@@ -1,8 +1,92 @@
 @extends("/template/template-header")
 
 @section("content")
-<div class="container">
-	<div class="row">
+<div class="row">
+	<div class="col-xl-3 col-lg-6">
+      <div class="card card-stats mb-4 mb-xl-0">
+        <a href="{{url('/header/work-information')}}/{{$staff->id}}">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <h5 class="card-title text-uppercase text-muted mb-0">เงินเดือน</h5>
+                <span class="h3 font-weight-bold mb-0">{{number_format((float)$staff->salary)}}</span>
+              </div>
+              <div class="col-auto">
+                <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                  <i class="ni ni-money-coins"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6">
+      <div class="card card-stats mb-4 mb-xl-0">
+        <a href="{{url('/header/fund-information')}}/{{$staff->id}}">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase text-muted mb-0">เงินกองทุนสะสม</h5>
+              <?php
+                $sum_fund = 0;  
+                $fund = 0;
+                foreach ($fundss as $fund => $value) {
+                    $fund = str_replace(',','',$value->fund);
+                    $sum_fund += floatval($fund);
+                    $fund = number_format($sum_fund);
+                }
+              ?>
+              <span class="h3 font-weight-bold mb-0">{{$fund}}</span>
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                <i class="fas fa-chart-bar"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6">
+      <div class="card card-stats mb-4 mb-xl-0">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase text-muted mb-0">โบนัสรายปี</h5>
+              <span class="h3 font-weight-bold mb-0">{{number_format((float)$bonus)}}</span>
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                <i class="ni ni-chart-pie-35"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-6">
+      <div class="card card-stats mb-4 mb-xl-0">
+        <a href="{{url('/header/work-information')}}/{{$staff->id}}">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h5 class="card-title text-uppercase text-muted mb-0">วันหยุด</h5>
+              <span class="h3 font-weight-bold mb-0">เหลือ {{$absence}} วัน</span>
+            </div>
+            <div class="col-auto">
+              <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                <i class="ni ni-calendar-grid-58"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      </div>
+    </div>
+</div>
+<div class="row" style="margin-top: 20px;">
         <div class="col-lg-4">
             <div class="profile-card-4 z-depth-3">
             	<div class="card">
@@ -68,7 +152,7 @@
 		                    <p>วันที่เริ่มงาน : {{$staff->startdate}}</p>
 		                </div>
 		                <div class="col-md-3">
-		                    <p>เงินเดือน : {{$staff->salary}}</p>
+		                    <p>เงินเดือน : {{number_format((float)$staff->salary)}}</p>
 		                </div>
 		            </div>
 		            <div class="row">
@@ -81,12 +165,5 @@
         		</div>
       		</div>
       	</div>
-      	<div class="col-lg-12" style="margin-top: 20px;">
-           	<div class="card z-depth-3">
-            	<div class="card-body">
-        		</div>
-      		</div>
-      	</div>
     </div>
-</div>
 @endsection

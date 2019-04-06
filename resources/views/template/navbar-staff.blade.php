@@ -10,41 +10,37 @@
         <img src="{{ asset('/img/brand/logo.png')}}" class="navbar-brand-img" alt="...">
       </a>
       <!-- User -->
-      
+      @auth('staff')
       <ul class="nav align-items-center d-md-none">
         <li class="nav-item dropdown">
           <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" src="{{ asset('/img/theme/team-1-800x800.jpg')}}">
+                <img alt="Image placeholder" src="{{url('images')}}/{{auth('staff')->user()->image}}">
               </span>
             </div>
           </a>
           <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
-            <a href="./examples/profile.html" class="dropdown-item">
+            <a href="{{url('/staff/profile')}}" class="dropdown-item">
               <i class="ni ni-single-02"></i>
               <span>โปร์ไฟล์ส่วนตัว</span>
             </a>
-            <a href="./examples/profile.html" class="dropdown-item">
-              <i class="ni ni-settings-gear-65"></i>
-              <span>Settings</span>
-            </a>
-            <a href="./examples/profile.html" class="dropdown-item">
-              <i class="ni ni-calendar-grid-58"></i>
-              <span>Activity</span>
-            </a>
-            <a href="./examples/profile.html" class="dropdown-item">
-              <i class="ni ni-support-16"></i>
-              <span>Support</span>
-            </a>
             <div class="dropdown-divider"></div>
-            <a href="#!" class="dropdown-item">
-              <i class="ni ni-user-run"></i>
-              <span>ออกจากระบบ</span>
-            </a>
+              <a class="dropdown-item" href="{{ route('staff.logout') }}"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                <i class="ni ni-user-run"></i>{{ __('ออกจากระบบ') }}
+              </a>
+              <form id="logout-form" action="{{ 'App\Staff' == Auth::getProvider()->getModel() ? route('staff.logout') : route('staff.logout') }}" method="POST" style="display: none;">
+              @csrf
+              </form>
           </div>
         </li>
       </ul>
+      @endauth
+      @guest
+            
+      @endauth
       
       <!-- Collapse -->
       <div class="collapse navbar-collapse" id="sidenav-collapse-main">
@@ -65,17 +61,23 @@
           </div>
         </div>
         <!-- Form -->
+        @auth('staff')
         <form class="mt-4 mb-3 d-md-none">
           <div class="input-group input-group-rounded input-group-merge">
-            <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
-            <div class="input-group-prepend">
+            <!-- <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search"> -->
+            <!-- <div class="input-group-prepend">
               <div class="input-group-text">
                 <span class="fa fa-search"></span>
               </div>
-            </div>
+            </div> -->
           </div>
         </form>
+        @endauth
+        @guest
+            
+        @endauth
         <!-- Navigation -->
+        
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="{{url('/staff/profile')}}">
@@ -83,7 +85,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/admin/staff-register')}}">
+            <a class="nav-link" href="{{url('/staff/work-information')}}">
               <i class="ni ni-single-copy-04 text-primary"></i> ข้อมูลการทำงาน
             </a>
           </li>
@@ -92,18 +94,16 @@
               <i class="ni ni-money-coins text-primary"></i> ข้อมูลด้านการเงิน
             </a>
             <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
-              <a href="#" class="dropdown-item">
-                <span>เงินเดือน</span>
-              </a>
-              <a href="#" class="dropdown-item">
-                <span>โบนัส</span>
-              </a>
-              <a href="#" class="dropdown-item">
+              <!-- <a href="{{url('/staff/bonus')}}" class="dropdown-item">
+                <span>โบนัสรายปี</span>
+              </a> -->
+              <a href="{{url('/staff/fund')}}" class="dropdown-item">
                 <span>เงินกองทุนสะสม</span>
               </a>
             </div>
           </li>
         </ul>
+        
       </div>
     </div>
   </nav>
@@ -113,25 +113,25 @@
     <!-- Top navbar -->
     <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
       <div class="container-fluid">
+        @auth('staff')
         <!-- Form -->
         <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
           <div class="form-group mb-0">
-            <div class="input-group input-group-alternative">
+            <!-- <div class="input-group input-group-alternative">
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fas fa-search"></i></span>
               </div>
               <input class="form-control" placeholder="Search" type="text">
-            </div>
+            </div> -->
           </div>
         </form>
         <!-- User -->
-        
         <ul class="navbar-nav align-items-center d-none d-md-flex">
           <li class="nav-item dropdown">
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="{{ asset('/img/theme/team-4-800x800.jpg')}}">
+                  <img alt="Image placeholder" src="{{url('images')}}/{{auth('staff')->user()->image}}">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
                   <span class="mb-0 text-sm  font-weight-bold"></span>
@@ -139,21 +139,9 @@
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
-              <a href="#" class="dropdown-item">
+              <a href="{{url('/staff/profile')}}" class="dropdown-item">
                 <i class="ni ni-single-02"></i>
                 <span>โปรไฟล์ส่วนตัว</span>
-              </a>
-              <a href="./examples/profile.html" class="dropdown-item">
-                <i class="ni ni-settings-gear-65"></i>
-                <span>Settings</span>
-              </a>
-              <a href="./examples/profile.html" class="dropdown-item">
-                <i class="ni ni-calendar-grid-58"></i>
-                <span>Activity</span>
-              </a>
-              <a href="./examples/profile.html" class="dropdown-item">
-                <i class="ni ni-support-16"></i>
-                <span>Support</span>
               </a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{{ route('staff.logout') }}"
@@ -167,7 +155,10 @@
             </div>
           </li>
         </ul>
-        
+        @endauth
+        @guest
+            
+        @endauth
       </div>
     </nav>
     <!-- Header -->

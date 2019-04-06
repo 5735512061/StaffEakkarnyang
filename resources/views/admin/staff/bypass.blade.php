@@ -5,7 +5,14 @@
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-0">
-              <p class="mb-0">ข้อมูลพนักงาน สาขาบายพาส</p>
+              <div class="row">
+                <div class="col-md-9">
+                  <p class="mb-0">ข้อมูลพนักงาน สาขาบายพาส<p>
+                </div>
+                <div class="col-md-3">
+                  <a href="{{url('/admin/history-bypass')}}" class="btn btn-info">ข้อมูลพนักงานที่ลาออก</a>
+                </div>
+              </div>
             </div>
             <div class="table-responsive">
               <table class="table align-items-center table-flush">
@@ -31,7 +38,7 @@
                     <td>{{$value->tel}}</td>
                     <td>{{$value->position}}</td>
                     <td>{{$value->startdate}}</td>
-                    <td>{{$value->salary}}</td>
+                    <td style="color: red;">{{number_format((float)$value->salary)}}</td>
                     <td>
                       <a href="{{url('/admin/staff-information/')}}/{{$value->id}}">
                           <center><i class="ni ni-folder-17" style="color:blue;"></i></center>
@@ -41,8 +48,9 @@
                       <a href="{{url('/admin/edit-staff')}}/{{$value->id}}">
                           <i class="ni ni-settings" style="color:blue;"></i>
                       </a>
-                      <a formaction="#" onclick="return confirm('Are you sure to delete ?')">
-                      <i class="ni ni-basket" style="color:red;"></i></a>{{csrf_field()}}
+                      <input type="hidden" name="_method" value="Delete">
+                      <a href="{{url('/admin/delete-staff/')}}/{{$value->id}}" onclick="return confirm('Are you sure to delete ?')">{{csrf_field()}}
+                      <i class="ni ni-basket" style="color:red;"></i></a>
                       <input type="hidden" name="id" value="{{$value->id}}">
                     </td>
                   </tr>
