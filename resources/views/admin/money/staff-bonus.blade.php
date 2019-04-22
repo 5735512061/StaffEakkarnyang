@@ -59,12 +59,32 @@
                       $fundss = DB::table('funds')->where('staff_id',$value->id)->get();
                       
                       $absence = 25-$absence;
-                        if($absence != 0) {
+
+                      $lates = DB::table('works')->where('staff_id',$value->id)->get();
+                      $sum_late = 0;  
+                      $late = 0;
+                      foreach ($lates as $late => $value) {
+                          $late = str_replace(',','',$value->late);
+                          $sum_late += floatval($late);
+                          $late = number_format($sum_late);
+                      }
+                      
+                      if($late > 5 || $late == 0) {
+                          $balance = $late%5;
+                          $absencelate = (25-$absence)+(($late-$balance)/5);
+                          $absence = 25-$absencelate;
+                      }
+                      else {
+                          $balance = $late;
+                          $absencelate = $late;
+                      }
+
+                      if($absence > 0) {
                           $bonus = $salary;
-                        } 
-                        else {
+                      } 
+                      elseif($absence == 0 || $absence < 0) {
                           $bonus = 0;
-                        }
+                      }
                     ?>
                     <td>{{$absence}}</td>
                     <td  style="color: red;">{{number_format((float)$bonus)}}</td>
@@ -113,12 +133,32 @@
                       $fundss = DB::table('funds')->where('staff_id',$value->id)->get();
                       
                       $absence = 25-$absence;
-                        if($absence != 0) {
+              
+                      $lates = DB::table('works')->where('staff_id',$value->id)->get();
+                      $sum_late = 0;  
+                      $late = 0;
+                      foreach ($lates as $late => $value) {
+                          $late = str_replace(',','',$value->late);
+                          $sum_late += floatval($late);
+                          $late = number_format($sum_late);
+                      }
+                      
+                      if($late > 5 || $late == 0) {
+                          $balance = $late%5;
+                          $absencelate = (25-$absence)+(($late-$balance)/5);
+                          $absence = 25-$absencelate;
+                      }
+                      else {
+                          $balance = $late;
+                          $absencelate = $late;
+                      }
+
+                      if($absence > 0) {
                           $bonus = $salary;
-                        } 
-                        else {
+                      } 
+                      elseif($absence == 0 || $absence < 0) {
                           $bonus = 0;
-                        }
+                      }
                     ?>
                     <td>{{$absence}}</td>
                     <td  style="color: red;">{{number_format((float)$bonus)}}</td>
@@ -167,12 +207,32 @@
                       $fundss = DB::table('funds')->where('staff_id',$value->id)->get();
                       
                       $absence = 25-$absence;
-                        if($absence != 0) {
+
+                      $lates = DB::table('works')->where('staff_id',$value->id)->get();
+                      $sum_late = 0;  
+                      $late = 0;
+                      foreach ($lates as $late => $value) {
+                          $late = str_replace(',','',$value->late);
+                          $sum_late += floatval($late);
+                          $late = number_format($sum_late);
+                      }
+                      
+                      if($late > 5 || $late == 0) {
+                          $balance = $late%5;
+                          $absencelate = (25-$absence)+(($late-$balance)/5);
+                          $absence = 25-$absencelate;
+                      }
+                      else {
+                          $balance = $late;
+                          $absencelate = $late;
+                      }
+
+                      if($absence > 0) {
                           $bonus = $salary;
-                        } 
-                        else {
+                      } 
+                      elseif($absence == 0 || $absence < 0) {
                           $bonus = 0;
-                        }
+                      }
                     ?>
                     <td>{{$absence}}</td>
                     <td  style="color: red;">{{number_format((float)$bonus)}}</td>
@@ -221,12 +281,32 @@
                       $fundss = DB::table('funds')->where('staff_id',$value->id)->get();
                       
                       $absence = 25-$absence;
-                        if($absence != 0) {
+              
+                      $lates = DB::table('works')->where('staff_id',$value->id)->get();
+                      $sum_late = 0;  
+                      $late = 0;
+                      foreach ($lates as $late => $value) {
+                          $late = str_replace(',','',$value->late);
+                          $sum_late += floatval($late);
+                          $late = number_format($sum_late);
+                      }
+                      
+                      if($late > 5 || $late == 0) {
+                          $balance = $late%5;
+                          $absencelate = (25-$absence)+(($late-$balance)/5);
+                          $absence = 25-$absencelate;
+                      }
+                      else {
+                          $balance = $late;
+                          $absencelate = $late;
+                      }
+
+                      if($absence > 0) {
                           $bonus = $salary;
-                        } 
-                        else {
+                      } 
+                      elseif($absence == 0 || $absence < 0) {
                           $bonus = 0;
-                        }
+                      }
                     ?>
                     <td>{{$absence}}</td>
                     <td  style="color: red;">{{number_format((float)$bonus)}}</td>
@@ -275,12 +355,32 @@
                       $fundss = DB::table('funds')->where('staff_id',$value->id)->get();
                       
                       $absence = 25-$absence;
-                        if($absence != 0) {
+
+                      $lates = DB::table('works')->where('staff_id',$value->id)->get();
+                      $sum_late = 0;  
+                      $late = 0;
+                      foreach ($lates as $late => $value) {
+                          $late = str_replace(',','',$value->late);
+                          $sum_late += floatval($late);
+                          $late = number_format($sum_late);
+                      }
+                      
+                      if($late > 5 || $late == 0) {
+                          $balance = $late%5;
+                          $absencelate = (25-$absence)+(($late-$balance)/5);
+                          $absence = 25-$absencelate;
+                      }
+                      else {
+                          $balance = $late;
+                          $absencelate = $late;
+                      }
+
+                      if($absence > 0) {
                           $bonus = $salary;
-                        } 
-                        else {
+                      } 
+                      elseif($absence == 0 || $absence < 0) {
                           $bonus = 0;
-                        }
+                      }
                     ?>
                     <td>{{$absence}}</td>
                     <td  style="color: red;">{{number_format((float)$bonus)}}</td>
@@ -329,12 +429,32 @@
                       $fundss = DB::table('funds')->where('staff_id',$value->id)->get();
                       
                       $absence = 25-$absence;
-                        if($absence != 0) {
+              
+                      $lates = DB::table('works')->where('staff_id',$value->id)->get();
+                      $sum_late = 0;  
+                      $late = 0;
+                      foreach ($lates as $late => $value) {
+                          $late = str_replace(',','',$value->late);
+                          $sum_late += floatval($late);
+                          $late = number_format($sum_late);
+                      }
+                      
+                      if($late > 5 || $late == 0) {
+                          $balance = $late%5;
+                          $absencelate = (25-$absence)+(($late-$balance)/5);
+                          $absence = 25-$absencelate;
+                      }
+                      else {
+                          $balance = $late;
+                          $absencelate = $late;
+                      }
+
+                      if($absence > 0) {
                           $bonus = $salary;
-                        } 
-                        else {
+                      } 
+                      elseif($absence == 0 || $absence < 0) {
                           $bonus = 0;
-                        }
+                      }
                     ?>
                     <td>{{$absence}}</td>
                     <td  style="color: red;">{{number_format((float)$bonus)}}</td>

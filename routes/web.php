@@ -57,7 +57,7 @@ Route::group(['middleware' => ['auth']], function () {
 	Route::group(['prefix' => 'header'], function(){
 		Route::get('/login','AuthHeader\LoginController@ShowLoginForm')->name('header.login');
 	    Route::post('/login','AuthHeader\LoginController@login')->name('header.login.submit'); 
-	    Route::post('/logout', 'AuthStaff\LoginController@logout')->name('header.logout'); 
+	    Route::post('/logout', 'AuthHeader\LoginController@logout')->name('header.logout'); 
 	    Route::get('/staff-register','Header\\HeadersController@staff_register')->name('header.home');
 		Route::post('/staff-register','Header\\HeadersController@register');	
 		Route::get('/staff-bypass','Header\\HeadersController@staff_bypass');	

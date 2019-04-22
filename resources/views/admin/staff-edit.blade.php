@@ -124,7 +124,7 @@
                       <div class="col-lg-4">
                         <div class="form-group">
                           <label class="form-control-label">เงินเดือน</label>
-                          <input type="text" name="salary" value="{{number_format((float)$staff->salary)}}" class="form-control form-control-alternative">
+                          <input type="text" name="salary" value="{{$staff->salary}}" class="form-control form-control-alternative">
                         </div>
                       </div>
                       <div class="col-lg-4">

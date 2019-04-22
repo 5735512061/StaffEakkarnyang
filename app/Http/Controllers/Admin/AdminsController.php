@@ -14,6 +14,7 @@ use Auth;
 
 class AdminsController extends Controller
 {
+
     public function staff_register() {
     	return view('/admin/staff-register');
     }
@@ -129,13 +130,34 @@ class AdminsController extends Controller
         $absence = (int)Work::where('staff_id',$staff->id)->sum('absence');
         $salary = Staff::where('id',$staff->id)->value('salary');
         $fundss = Fund::where('staff_id',$staff->id)->get();
+        $absenceyear = $absence;
         $absence = 25-$absence;
-          if($absence != 0) {
+
+        $lates = Work::where('staff_id',$staff->id)->get();
+        $sum_late = 0;  
+        $late = 0;
+        foreach ($lates as $late => $value) {
+            $late = str_replace(',','',$value->late);
+            $sum_late += floatval($late);
+            $late = number_format($sum_late);
+        }
+        
+        if($late > 5 || $late == 0) {
+            $balance = $late%5;
+            $absencelate = (25-$absence)+(($late-$balance)/5);
+            $absence = 25-$absencelate;
+        }
+        else {
+            $balance = $late;
+            $absencelate = $late;
+        }
+
+        if($absence > 0) {
             $bonus = $salary;
-          } 
-          else {
+        } 
+        elseif($absence == 0 || $absence < 0) {
             $bonus = 0;
-          }
+        }
         return view('/admin/staff-information')->with('staff',$staff)
                                                ->with('fundss',$fundss)
                                                ->with('absence',$absence)
@@ -219,13 +241,34 @@ class AdminsController extends Controller
         $absence = (int)Work::where('staff_id',$staff->id)->sum('absence');
         $salary = Staff::where('id',$staff->id)->value('salary');
         $fundss = Fund::where('staff_id',$staff->id)->get();
+        $absenceyear = $absence;
         $absence = 25-$absence;
-          if($absence != 0) {
+
+        $lates = Work::where('staff_id',$staff->id)->get();
+        $sum_late = 0;  
+        $late = 0;
+        foreach ($lates as $late => $value) {
+            $late = str_replace(',','',$value->late);
+            $sum_late += floatval($late);
+            $late = number_format($sum_late);
+        }
+        
+        if($late > 5 || $late == 0) {
+            $balance = $late%5;
+            $absencelate = (25-$absence)+(($late-$balance)/5);
+            $absence = 25-$absencelate;
+        }
+        else {
+            $balance = $late;
+            $absencelate = $late;
+        }
+
+        if($absence > 0) {
             $bonus = $salary;
-          } 
-          else {
+        } 
+        elseif($absence == 0 || $absence < 0) {
             $bonus = 0;
-          }
+        }
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
         return view('/admin/money/fund-information')->with('funds',$funds)
@@ -499,12 +542,6 @@ class AdminsController extends Controller
         
         $absenceyear = $absence;
         $absence = 25-$absence;
-          if($absence != 0) {
-            $bonus = $salary;
-          } 
-          else {
-            $bonus = 0;
-          }
 
         $lates = Work::where('staff_id',$staff->id)->get();
         $sum_late = 0;  
@@ -515,14 +552,21 @@ class AdminsController extends Controller
             $late = number_format($sum_late);
         }
         
-        if($late > 3 || $late == 0) {
-            $balance = $late%3;
-            $absencelate = (25-$absence)+(($late-$balance)/3);
+        if($late > 5 || $late == 0) {
+            $balance = $late%5;
+            $absencelate = (25-$absence)+(($late-$balance)/5);
             $absence = 25-$absencelate;
         }
         else {
             $balance = $late;
             $absencelate = $late;
+        }
+
+        if($absence > 0) {
+            $bonus = $salary;
+        } 
+        elseif($absence == 0 || $absence < 0) {
+            $bonus = 0;
         }
         $page = $request->input('page');
         $page = ($page != null)?$page:1;

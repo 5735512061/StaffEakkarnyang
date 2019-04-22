@@ -30,6 +30,7 @@
                     <th>ค่าประกันสังคม</th>
                     <th>ขาดงานเกิน</th>
                     <th>หักอื่นๆ</th>
+                    <th>หมายเหตุ</th>
                     <th>ยอดคงเหลือ</th>
                     <th>เพิ่มเติม</th>
                   </tr>
@@ -60,6 +61,7 @@
                     <td>- <?php echo number_format(DB::table('works')->where('staff_id',$value->id)->orderBy('id','desc')->value('insurance'));?></td>
                     <td>- <?php echo number_format(DB::table('works')->where('staff_id',$value->id)->orderBy('id','desc')->value('overstop'));?></td>
                     <td>- <?php echo number_format(DB::table('works')->where('staff_id',$value->id)->orderBy('id','desc')->value('deduct'));?></td>
+                    <td><?php echo (DB::table('works')->where('staff_id',$value->id)->orderBy('id','desc')->value('comment'));?></td>
                     <?php 
                       $salary = str_replace(',','',$value->salary);
                       $salary = (int)$salary;
@@ -178,6 +180,11 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <p>หักอื่นๆ : <input type="text" name="deduct" class="form-control form-control-alternative" value="0"></p>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <p>หมายเหตุ : <textarea name="comment" cols="5" rows="3" class="form-control form-control-alternative">-</textarea></p>
                   </div>
                 </div>
               </div>

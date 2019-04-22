@@ -73,7 +73,7 @@
             
         @endauth
         <!-- Navigation -->
-        @auth
+        
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -155,10 +155,6 @@
             </div>
           </li>
         </ul>
-        @endauth
-        @guest
-            
-        @endauth
       </div>
     </div>
   </nav>

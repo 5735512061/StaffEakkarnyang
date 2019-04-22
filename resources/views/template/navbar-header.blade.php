@@ -72,7 +72,6 @@
             
         @endauth
         <!-- Navigation -->
-        @auth('header')
         <ul class="navbar-nav">
           <li class="nav-item">
             <a class="nav-link" href="{{url('/header/staff-register')}}">
@@ -146,10 +145,6 @@
             </div>
           </li>
         </ul>
-        @endauth
-        @guest
-            
-        @endauth
       </div>
     </div>
   </nav>

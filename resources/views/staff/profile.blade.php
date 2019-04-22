@@ -191,6 +191,7 @@
                     <th>ค่าประกันสังคม</th>
                     <th>ขาดงานเกิน</th>
                     <th>หักอื่นๆ</th>
+                    <th>หมายเหตุ</th>
                     <th>ยอดคงเหลือ</th>
                   </tr>
                 </thead>
@@ -217,6 +218,7 @@
                     <td>- {{number_format((float)$value->insurance)}}</td>
                     <td>- {{number_format((float)$value->overstop)}}</td>
                     <td>- {{number_format((float)$value->deduct)}}</td>
+                    <td>{{$value->comment}}</td>
                     <?php 
                       $salary = DB::table('staffs')->where('id',$value->staff_id)->value('salary');
                       $salary = str_replace(',','',$salary);
