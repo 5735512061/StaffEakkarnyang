@@ -74,7 +74,7 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::get('/staff-salary','Header\\HeadersController@staff_salary');
 		Route::get('/edit-staff/{id}', 'Header\\HeadersController@edit_staff');
 		Route::post('/update-staff','Header\\HeadersController@update_staff');
-		Route::get('/delete-staff/{id}','Header\\HeadersController@delete_staff');
+		Route::post('/delete-staff/{id}','Header\\HeadersController@delete_staff');
 		Route::get('/history-bypass','Header\\HeadersController@history_bypass');
 		Route::get('/history-chaofa','Header\\HeadersController@history_chaofa');	
 		Route::get('/history-khokkloi','Header\\HeadersController@history_khokkloi');	

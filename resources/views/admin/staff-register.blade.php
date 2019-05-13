@@ -118,6 +118,7 @@
 								<option>ที่ปรึกษาด้านบริการ ฝ่ายช่าง</option>
 								<option>ช่าง</option>
 								<option>ไอที</option>
+								<option>อัดฉีด</option>
 	                        </select>
 	                      </div>
 	                    </div>

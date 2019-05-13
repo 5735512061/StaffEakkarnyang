@@ -343,8 +343,9 @@ textarea
     font-family: inherit;
     font-size: inherit;
     line-height: inherit; 
-
     margin: 0;
+    background-color: #ffffff;
+    padding: 0;
 }
 
 button,

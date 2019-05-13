@@ -45,12 +45,14 @@
                       </a>
                     </td>
                     <td>
-                      <a href="{{url('/admin/edit-staff')}}/{{$value->id}}">
+                      <form action="{{url('/admin/delete-staff/')}}/{{$value->id}}" enctype="multipart/form-data" method="post">@csrf
+                        <a href="{{url('/admin/edit-staff')}}/{{$value->id}}">
                           <i class="ni ni-settings" style="color:blue;"></i>
-                      </a>
-                      <input type="hidden" name="_method" value="Delete">
-                      <a href="{{url('/admin/delete-staff/')}}/{{$value->id}}" onclick="return confirm('Are you sure to delete ?')">{{csrf_field()}}
-                      <i class="ni ni-basket" style="color:red;"></i></a>
+                        </a>                                    
+                        <button type="submit" onclick="return confirm('Are you sure to delete ?')">
+                          <i class="ni ni-basket" style="color:red;"></i>
+                        </button>
+                      </form>
                       <input type="hidden" name="id" value="{{$value->id}}">
                     </td>
                   </tr>

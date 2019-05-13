@@ -39,7 +39,7 @@ class HeadersController extends Controller
     public function staff_bypass(Request $request) {
         $NUM_PAGE = 10;
         $staffs = Staff::where('branch',"สาขาบายพาส")
-                       ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                       ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                        ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -51,7 +51,7 @@ class HeadersController extends Controller
     public function staff_chaofa(Request $request) {
         $NUM_PAGE = 10;
         $staffs = Staff::where('branch',"สาขาเจ้าฟ้า")
-                       ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                       ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                        ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -63,7 +63,7 @@ class HeadersController extends Controller
     public function staff_khokkloi(Request $request) {
         $NUM_PAGE = 10;
         $staffs = Staff::where('branch',"สาขาโคกกลอย")
-                       ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                       ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                        ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -75,7 +75,7 @@ class HeadersController extends Controller
     public function staff_phangnga(Request $request) {
         $NUM_PAGE = 10;
         $staffs = Staff::where('branch',"สาขาเมืองพังงา")
-                       ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                       ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                        ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -87,7 +87,7 @@ class HeadersController extends Controller
     public function staff_thaiwatsadu(Request $request) {
         $NUM_PAGE = 10;
         $staffs = Staff::where('branch',"สาขาไทวัสดุ")
-                       ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                       ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                        ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -99,7 +99,7 @@ class HeadersController extends Controller
     public function staff_thalang(Request $request) {
         $NUM_PAGE = 10;
         $staffs = Staff::where('branch',"สาขาถลาง")
-                       ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                       ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                        ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -150,22 +150,22 @@ class HeadersController extends Controller
     public function staff_salary(Request $request) {
         $NUM_PAGE = 100;
         $khokklois = Staff::where('branch',"สาขาโคกกลอย")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $phangngas = Staff::where('branch',"สาขาเมืองพังงา")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $bypasss = Staff::where('branch',"สาขาบายพาส")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $thaiwatsadus = Staff::where('branch',"สาขาไทวัสดุ")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $chaofas = Staff::where('branch',"สาขาเจ้าฟ้า")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $thalangs = Staff::where('branch',"สาขาถลาง")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -182,22 +182,22 @@ class HeadersController extends Controller
     public function staff_fund(Request $request) {
         $NUM_PAGE = 100;
         $khokklois = Staff::where('branch',"สาขาโคกกลอย")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $phangngas = Staff::where('branch',"สาขาเมืองพังงา")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $bypasss = Staff::where('branch',"สาขาบายพาส")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $thaiwatsadus = Staff::where('branch',"สาขาไทวัสดุ")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $chaofas = Staff::where('branch',"สาขาเจ้าฟ้า")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $thalangs = Staff::where('branch',"สาขาถลาง")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -266,22 +266,22 @@ class HeadersController extends Controller
     public function staff_bonus(Request $request) {
         $NUM_PAGE = 100;
         $khokklois = Staff::where('branch',"สาขาโคกกลอย")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $phangngas = Staff::where('branch',"สาขาเมืองพังงา")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $bypasss = Staff::where('branch',"สาขาบายพาส")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $thaiwatsadus = Staff::where('branch',"สาขาไทวัสดุ")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $chaofas = Staff::where('branch',"สาขาเจ้าฟ้า")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $thalangs = Staff::where('branch',"สาขาถลาง")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -361,14 +361,19 @@ class HeadersController extends Controller
         $history->image = $image;
         $history->save();
 
+        $work = Work::where('staff_id',$id)->delete();
+
+        $fund = Fund::where('staff_id',$id)->delete();
+
         $staff = Staff::findOrFail($id)->delete();
+        
         return back();
     }
 
     public function history_bypass(Request $request) {
         $NUM_PAGE = 10;
         $historys = History::where('branch',"สาขาบายพาส")
-                           ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                           ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                            ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -380,7 +385,7 @@ class HeadersController extends Controller
     public function history_chaofa(Request $request) {
         $NUM_PAGE = 10;
         $historys = History::where('branch',"สาขาเจ้าฟ้า")
-                           ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                           ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                            ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -392,7 +397,7 @@ class HeadersController extends Controller
     public function history_khokkloi(Request $request) {
         $NUM_PAGE = 10;
         $historys = History::where('branch',"สาขาโคกกลอย")
-                           ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                           ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                            ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -404,7 +409,7 @@ class HeadersController extends Controller
     public function history_phangnga(Request $request) {
         $NUM_PAGE = 10;
         $historys = History::where('branch',"สาขาเมืองพังงา")
-                           ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                           ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                            ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -416,7 +421,7 @@ class HeadersController extends Controller
     public function history_thaiwatsadu(Request $request) {
         $NUM_PAGE = 10;
         $historys = History::where('branch',"สาขาไทวัสดุ")
-                           ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                           ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                            ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -428,7 +433,7 @@ class HeadersController extends Controller
     public function history_thalang(Request $request) {
         $NUM_PAGE = 10;
         $historys = History::where('branch',"สาขาถลาง")
-                           ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                           ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                            ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -445,7 +450,7 @@ class HeadersController extends Controller
     public function work_bypass(Request $request) {
         $NUM_PAGE = 10;
         $staffs = Staff::where('branch',"สาขาบายพาส")
-                       ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                       ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                        ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -457,7 +462,7 @@ class HeadersController extends Controller
     public function work_chaofa(Request $request) {
         $NUM_PAGE = 10;
         $staffs = Staff::where('branch',"สาขาเจ้าฟ้า")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -469,7 +474,7 @@ class HeadersController extends Controller
     public function work_khokkloi(Request $request) {
         $NUM_PAGE = 10;
         $staffs = Staff::where('branch',"สาขาโคกกลอย")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -481,7 +486,7 @@ class HeadersController extends Controller
     public function work_phangnga(Request $request) {
         $NUM_PAGE = 10;
         $staffs = Staff::where('branch',"สาขาเมืองพังงา")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -493,7 +498,7 @@ class HeadersController extends Controller
     public function work_thaiwatsadu(Request $request) {
         $NUM_PAGE = 10;
         $staffs = Staff::where('branch',"สาขาไทวัสดุ")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
@@ -505,7 +510,7 @@ class HeadersController extends Controller
     public function work_thalang(Request $request) {
         $NUM_PAGE = 10;
         $staffs = Staff::where('branch',"สาขาถลาง")
-                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที")')
+                         ->orderByRaw('FIELD(position,"ผู้จัดการ","หัวหน้าช่าง","ที่ปรึกษาด้านบริการ","ที่ปรึกษาด้านบริการ ฝ่ายช่าง","ช่าง","ไอที","อัดฉีด")')
                          ->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
